@@ -1,3 +1,16 @@
+/*
+ * My try at making a 1k WebGL demo.
+ *
+ * I'm very much in debt to http://www.bitsnbites.eu/?p=112
+ *
+ * Useful packers:
+ * http://closure-compiler.appspot.com/home
+ * http://crunchme.bitsnbites.eu/
+ * http://iteral.com/jscrush/
+ * https://github.com/cowboy/javascript-packify
+ * http://advsys.net/ken/utils.htm
+ */
+
 var initTime = new Date().valueOf();
 // SHADERS
 // vertex shader is just a pass-through
