@@ -25,15 +25,15 @@ var p = [],
     f = [
 // shader 1
 'precision highp float;'+
-'uniform float ut;'+
-'uniform vec2 ur;'+
+'uniform float t;'+
+'uniform vec2 w;'+
 
 'void main(void) {'+
-'vec2 p= -1.0 + 2.0 * gl_FragCoord.xy / ur.xy;'+
-'float red = abs(sin(exp(p.x) * p.y + ut / 1.4));'+
-'float green = abs(sin(p.x * exp(p.y) + ut / 1.2));'+
-'float blue = abs(sin(p.x * p.y + ut / 1.7));'+
-'gl_FragColor = vec4(red, green, blue, 1.0);'+
+'vec2 p=-1.0+2.0*gl_FragCoord.xy/w.xy;'+
+'float r=abs(sin(exp(p.x)*p.y+t/1.4));'+
+'float g=abs(sin(p.x*exp(p.y)+t/1.2));'+
+'float b=abs(sin(p.x*p.y+t/1.7));'+
+'gl_FragColor=vec4(r,g,b,1.0);'+
 '}'
     ],
     gl, mCanvas, mWidth, mHeight;
@@ -60,8 +60,8 @@ var p = [],
             gl.useProgram(prg);
 
             // Set time and screen size for the animation
-            gl.uniform1f(gl.getUniformLocation(prg, "ut"), t);
-            gl.uniform2f(gl.getUniformLocation(prg, "ur"), w, h);
+            gl.uniform1f(gl.getUniformLocation(prg, "t"), t);
+            gl.uniform2f(gl.getUniformLocation(prg, "w"), w, h);
 
             // Draw
             gl.drawArrays(TRIANGLE_STRIP, 0, 4);
