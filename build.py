@@ -10,7 +10,7 @@ def closure_compress(js):
     import httplib, urllib
     params = urllib.urlencode([
         ('js_code', js),
-        ('compilation_level', 'WHITESPACE_ONLY'),
+        ('compilation_level', 'ADVANCED_OPTIMIZATIONS'),
         ('output_format', 'text'),
         ('output_info', 'compiled_code'),
       ])

@@ -9,6 +9,12 @@
  * http://iteral.com/jscrush/
  * https://github.com/cowboy/javascript-packify
  * http://advsys.net/ken/utils.htm
+ *
+ * Useful reading:
+ * http://www.p01.org/releases/
+ * http://daeken.com/superpacking-js-demos
+ *
+ * http://www.iquilezles.org/apps/shadertoy/
  */
 
 var initTime = new Date().valueOf();
@@ -28,7 +34,7 @@ var p = [],
     float green = abs( sin( position.x * position.y + ut / 4.0 ) );\
     float blue = abs( sin( position.x * position.y + ut / 3.0 ) );\
     gl_FragColor = vec4( red, green, blue, 1.0 );\
-}',
+}'
     ],
     gl, mCanvas, mWidth, mHeight;
 
