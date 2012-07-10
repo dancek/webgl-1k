@@ -29,11 +29,11 @@ var p = [],
 'uniform vec2 ur;'+
 
 'void main(void) {\
-    vec2 position = - 1.0 + 2.0 * gl_FragCoord.xy / ur.xy;\
-    float red = abs( sin( position.x * position.y + ut / 5.0 ) );\
-    float green = abs( sin( position.x * position.y + ut / 4.0 ) );\
-    float blue = abs( sin( position.x * position.y + ut / 3.0 ) );\
-    gl_FragColor = vec4( red, green, blue, 1.0 );\
+    vec2 p = - 1.0 + 2.0 * gl_FragCoord.xy / ur.xy;\
+    float red = abs(sin(exp(p.x) * p.y + ut / 1.4));\
+    float green = abs(sin(p.x * exp(p.y) + ut / 1.2));\
+    float blue = abs(sin(p.x * p.y + ut / 1.7));\
+    gl_FragColor = vec4(red, green, blue, 1.0);\
 }'
     ],
     gl, mCanvas, mWidth, mHeight;
@@ -67,6 +67,7 @@ var p = [],
             gl.drawArrays(TRIANGLE_STRIP, 0, 4);
     };
 
+    // TODO: write my own startup instead of the ones ripped from frank
     // App startup
     (function ()
     {
