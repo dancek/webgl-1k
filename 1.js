@@ -28,13 +28,13 @@ var p = [],
 'uniform float ut;'+
 'uniform vec2 ur;'+
 
-'void main(void) {\
-    vec2 p = - 1.0 + 2.0 * gl_FragCoord.xy / ur.xy;\
-    float red = abs(sin(exp(p.x) * p.y + ut / 1.4));\
-    float green = abs(sin(p.x * exp(p.y) + ut / 1.2));\
-    float blue = abs(sin(p.x * p.y + ut / 1.7));\
-    gl_FragColor = vec4(red, green, blue, 1.0);\
-}'
+'void main(void) {'+
+'vec2 p= -1.0 + 2.0 * gl_FragCoord.xy / ur.xy;'+
+'float red = abs(sin(exp(p.x) * p.y + ut / 1.4));'+
+'float green = abs(sin(p.x * exp(p.y) + ut / 1.2));'+
+'float blue = abs(sin(p.x * p.y + ut / 1.7));'+
+'gl_FragColor = vec4(red, green, blue, 1.0);'+
+'}'
     ],
     gl, mCanvas, mWidth, mHeight;
 
@@ -116,6 +116,11 @@ var p = [],
             gl.enableVertexAttribArray(0);
             gl.vertexAttribPointer(0, 2, FLOAT, false, 0, 0); // position
 
+            // synthesize music
+            var softSynth = function(f){return eval("for(var t=0,S='RIFF_oO_WAVEfmt "+atob('EAAAAAEAAQBAHwAAQB8AAAEACAA')+"data';++t<3e5;)S+=String.fromCharCode("+f+")")}
+            //var softSynth = function(f){for(var t=0,S='RIFF_oO_WAVEfmt '+atob('EAAAAAEAAQBAHwAAQB8AAAEACAA')+'data';++t<3e5;)S+=String.fromCharCode(eval(f));return S};
+	
+new Audio( 'data:audio/wav;base64,'+btoa( softSynth( '((t|t>>10)^96+(t&t>>4)%(t>>16*64+1))&255' ) ) ).play();
             // Start the main loop
             setInterval(main, 1);
 //        }
