@@ -117,13 +117,13 @@ var p = [],
             gl.vertexAttribPointer(0, 2, FLOAT, false, 0, 0); // position
 
             // synthesize music
-            var softSynth = function(f){return eval("for(var t=0,S='RIFF_oO_WAVEfmt "+atob('EAAAAAEAAQAiVgAAIlYAAAEACAA')+"data';++t<1e6;)S+=String.fromCharCode("+f+")")}
+            var softSynth = function(f){return eval("for(var t=0,S='RIFF_oO_WAVEfmt "+atob('EAAAAAEAAQAiVgAAIlYAAAEACAA')+"data';++t<3e6;)S+=String.fromCharCode("+f+")")}
             //var softSynth = function(f){for(var t=0,S='RIFF_oO_WAVEfmt '+atob('EAAAAAEAAQBAHwAAQB8AAAEACAA')+'data';++t<3e5;)S+=String.fromCharCode(eval(f));return S};
             // header parts for different bitrates (padding isn't needed)
             // 8000:  'EAAAAAEAAQBAHwAAQB8AAAEACAA='
             // 22050: 'EAAAAAEAAQAiVgAAIlYAAAEACAA='
 	
-new Audio( 'data:audio/wav;base64,'+btoa( softSynth( '((t|t>>10)^96+(t&t>>4)%(t>>16*64+1))&255' ) ) ).play();
+new Audio( 'data:audio/wav;base64,'+btoa( softSynth( '((t>>5)^64+(t>>1&t>>7)&(t>>75)*(t<4e5?4:t&224)/4)&255' ) ) ).play();
             // Start the main loop
             setInterval(main, 1);
 //        }
